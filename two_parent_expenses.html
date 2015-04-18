@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="http://datamaps.github.io/scripts/datamaps.all.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.mi.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="dynamic.js"></script>
+
+  <div class="container">
+    <h1>Is Living on Minimum Wage Feasible?</h1>
+    <h4>Data for Two Parents</h4>
+    <div class="row">
+      <div class="col-md-8" id="map_container" style="position: relative; height: 400px;"></div>
+      <div class="col-md-4">
+        <h4>Legend</h4>
+      </div>
+      <div class="col-md-4" id="legend">
+        <small>Red: <code id="min">min</code>
+        <br><br><br><br>
+        Green: <code id="max">max</code></small>
+      </div>
+    </div>
+
+    <div>
+      <h4>No Food Stamps</h4>
+      <i>No state eligible for food stamps</i>
+    </div>
+  </div>
+
+  <style type="text/css">
+  #legend {
+    background: url('legend.png') no-repeat;
+    height: 110px;
+  }
+  </style>
+  <script>
+  $.getJSON("data-twoparents-expenses.json", function(json) {
+    start(json);
+  });
+  </script>
+</body>
